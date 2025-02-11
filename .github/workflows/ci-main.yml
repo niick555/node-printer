@@ -30,4 +30,4 @@ jobs:
       - name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild:ci -- --strip --runtime ${{ matrix.runtime }} --target ${{ matrix.target }} --arch ${{ matrix.arch }} -u ${{ secrets.PREBUILD_TOKEN }}
+          npm run prebuild:ci -- --strip --runtime ${{ matrix.runtime }} --target ${{ matrix.target }} --arch ${{ matrix.arch }} -u ${{ secrets.GITHUB_TOKEN }}
