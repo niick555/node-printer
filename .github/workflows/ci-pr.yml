@@ -9,9 +9,10 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [windows-latest, macos-latest]
         arch: [ia32, x64]
-        arch: [x64]
+        runtime: [electron]
+        electron: [13.1.6, 34.1.1]
     timeout-minutes: 30
     steps:
       - if: ${{ matrix.os == 'ubuntu-latest' }}
