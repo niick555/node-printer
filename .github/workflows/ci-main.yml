@@ -14,7 +14,7 @@ jobs:
         os: [windows-latest]
         arch: [ia32, x64]
         runtime: [electron]
-        target: [17.4.11]
+        target: [17.4.11, 34.1.1]
     timeout-minutes: 30
     steps:
       - if: ${{ matrix.os == 'ubuntu-latest' }}
