@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, macos-latest]
+        os: [windows-latest, ubuntu-latest, macos-latest]
         arch: [ia32, x64]
         runtime: [electron]
         electron: [13.1.6, 34.1.1]
