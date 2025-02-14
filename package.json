@@ -19,7 +19,7 @@
 		"url": "git://github.com/niick555/node-printer.git"
 	},
 	"engines": {
-		"node": ">= 18.0.0"
+		"node": ">= 14.0.0"
 	},
 	"scripts": {
 		"install": "prebuild-install || node-gyp rebuild",
