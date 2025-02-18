@@ -13,7 +13,7 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
         arch: [ia32, x64]
-        runtime: [electron]
+        runtime: [electron, node]
         target: [13.1.6, 22.0.0, 34.1.1]
     timeout-minutes: 30
     steps:
@@ -31,14 +31,9 @@ jobs:
         name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild:ci -- --strip --runtime ${{ matrix.runtime }} --target ${{ matrix.target }} --arch ${{ matrix.arch }} -u ${{ secrets.GITHUB_TOKEN }}
+          npm run prebuild:ci -- --strip --all --runtime ${{ matrix.runtime }} --arch ${{ matrix.arch }} -u ${{ secrets.GITHUB_TOKEN }}
       - if: ${{ matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest' }}
         name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild:ci -- --strip --runtime ${{ matrix.runtime }} --target ${{ matrix.target }} --arch x64 -u ${{ secrets.GITHUB_TOKEN }}
-      - if: ${{ matrix.os == 'ubuntu-latest' }}
-        name: Prebuild
-        run: |
-          npm run apply-patches
-          npm run prebuild:ci -- --strip --target 16.17.0 --arch x64 -u ${{ secrets.GITHUB_TOKEN }}
+          npm run prebuild:ci -- --strip --all --runtime ${{ matrix.runtime }} --arch x64 -u ${{ secrets.GITHUB_TOKEN }}
