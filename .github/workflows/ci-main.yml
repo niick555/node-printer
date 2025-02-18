@@ -32,7 +32,7 @@ jobs:
         run: |
           npm run apply-patches
           npm run prebuild:ci -- --strip --runtime ${{ matrix.runtime }} --target ${{ matrix.target }} --arch ${{ matrix.arch }} -u ${{ secrets.GITHUB_TOKEN }}
-      - if: ${{ matrix.os == 'macos-latest' }}
+      - if: ${{ matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest' }}
         name: Prebuild
         run: |
           npm run apply-patches
@@ -41,5 +41,4 @@ jobs:
         name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild:ci -- --strip --runtime ${{ matrix.runtime }} --target ${{ matrix.target }} --arch x64 -u ${{ secrets.GITHUB_TOKEN }}
           npm run prebuild:ci -- --strip --runtime node --target 16.15.0 --arch x64 -u ${{ secrets.GITHUB_TOKEN }}
