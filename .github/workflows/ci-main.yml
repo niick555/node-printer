@@ -41,4 +41,4 @@ jobs:
         name: Prebuild
         run: |
           npm run apply-patches
-          npm run prebuild:ci -- --strip --runtime node --target 16.15.0 --arch x64 -u ${{ secrets.GITHUB_TOKEN }}
+          npm run prebuild:ci -- --strip --target 16.17.0 --arch x64 -u ${{ secrets.GITHUB_TOKEN }}
